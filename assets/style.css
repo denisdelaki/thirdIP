@@ -1,0 +1,8 @@
+/* specify the backgrouond color for the quizBoard*/
+body {
+  background-color: silver;
+}
+/*define the styling properties of the header elements*/
+#header > h1 {
+  color: blueviolet;
+}
