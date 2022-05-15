@@ -34,7 +34,7 @@ var allQuestions = [
   },
   //Question 4
   {
-    Quiz: "Which of the following HTML tags will insert a line break?",
+    question: "Which of the following HTML tags will insert a line break?",
     options: {
       A: "<break>",
       B: "<br>",
@@ -45,7 +45,7 @@ var allQuestions = [
   },
   //Question5
   {
-    Quiz: "Which one of the following is an ternary operator:",
+    question: "Which one of the following is an ternary operator:",
     options: {
       A: "?",
       B: ":",
@@ -56,7 +56,7 @@ var allQuestions = [
   },
   //Question6
   {
-    Quiz: "Which type of Javascript language is?_______",
+    question: "Which type of Javascript language is?_______",
     options: {
       A: "High-level",
       B: "Assembly-language",
@@ -67,7 +67,8 @@ var allQuestions = [
   },
   //Questions7
   {
-    Quiz: "What symbols go around the properties for each Javascript function",
+    question:
+      "What symbols go around the properties for each Javascript function",
     options: {
       A: "<>",
       B: "()",
@@ -78,7 +79,7 @@ var allQuestions = [
   },
   //Questions 8
   {
-    Quiz: "The (function) and (var) are known as: (1 mrk)",
+    question: "The (function) and (var) are known as: (1 mrk)",
     options: {
       A: "Data Types",
       B: "Keywords",
@@ -89,7 +90,8 @@ var allQuestions = [
   },
   //Question9
   {
-    Quiz: "Which of the following variables takes precedence over the other if the names are the same?",
+    question:
+      "Which of the following variables takes precedence over the other if the names are the same?",
     options: {
       A: "Global variable",
       B: "the local element",
@@ -99,7 +101,8 @@ var allQuestions = [
   },
   //Question10
   {
-    Quiz: "Which one of the following is the correct way for calling the JavaScript code?",
+    question:
+      "Which one of the following is the correct way for calling the JavaScript code?",
     options: {
       A: "Function/method",
       B: "Preprocessor",
@@ -113,6 +116,26 @@ var allQuestions = [
 const quizContainer = document.getElementById("quiz");
 const resultsContainer = document.getElementById("results");
 const submitButton = document.getElementById("submit");
+function myQuizes() {
+  const output = [];
+  allQuestions.forEach((currentQuestion, questionNumber) => {
+    const answers = [];
+    for (letter in currentQuestion.answers) {
+      answers.push(
+        `<label>
+            <input type="radio" name="question${questionNumber}" value="${letter}">
+            ${letter} :
+            ${currentQuestion.answers[letter]}
+          </label>`
+      );
+    }
+    output.push(
+      `<div class="question"> ${currentQuestion.question} </div>
+        <div class="answers"> ${answers.join("")} </div>`
+    );
+  });
+  quizContainer.innerHTML = output.join("");
+}
 /*function generatequestions() {
   var exam = [
     //Question 1
