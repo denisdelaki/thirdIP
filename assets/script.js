@@ -153,6 +153,9 @@ function myResults() {
   });
   resultsContainer.innerHTML = `${numCorrect} out of ${allQuestions.length}`;
 }
+myQuizes();
+submitButton.addEventListener("click", myResults);
+
 /*function generatequestions() {
   var exam = [
     //Question 1
