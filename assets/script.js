@@ -119,4 +119,30 @@ function generatequestions() {
       correctoption: "A",
     },
   ];
+  //declaration of variable to store HTML results
+  var Results = [];
+  var answers;
+
+  for (var i = 0; i < questions.length; i++) {
+    answers = [];
+    for (letter in quetions[i].answers) {
+      answers.push(
+        "<label>" +
+          '<input type="radio" name= "question ' +
+          i +
+          '"value"' +
+          letter +
+          '">' +
+          letter +
+          ":" +
+          questions[i].answers[letter] +
+          "</label>"
+      );
+    }
+    
+    //push the questions and the answers to the Results variable
+    Results.push(
+      '<div'
+    )
+  }
 }
