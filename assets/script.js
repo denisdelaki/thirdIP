@@ -1,13 +1,10 @@
-//DECLARATION OF THE MAIN VARIABLES
-const questionscontainer = document.getElementById("questions");
-const outputcontainer = document.getElementById("output");
-const submissioncontainer = document.getElementById("submission");
+
 //generate the questions
 function generatequestions() {
   var exam = [
     //Question 1
     {
-      Quiz1: " HTML stands for?",
+      Quiz: " HTML stands for?",
       options: {
         A: "Hyperactive Text Markup Language",
         B: "Hyper Text Markup Language",
@@ -18,7 +15,7 @@ function generatequestions() {
     },
     //question 2
     {
-      Quiz2: "Which JavaScript method is used to write into an alert box?",
+      Quiz: "Which JavaScript method is used to write into an alert box?",
       options: {
         A: "window.alert().",
         B: "window.alertContent()",
@@ -29,7 +26,7 @@ function generatequestions() {
     },
     //Question 3
     {
-      Quiz3: "What is the extension that a Javascript document is saved?",
+      Quiz: "What is the extension that a Javascript document is saved?",
       options: {
         A: ".html",
         B: ".hml",
@@ -41,7 +38,7 @@ function generatequestions() {
     //Question 4
 
     {
-      Quiz4: "Which of the following HTML tags will insert a line break?",
+      Quiz: "Which of the following HTML tags will insert a line break?",
       options: {
         A: "<break>",
         B: "<br>",
@@ -52,7 +49,7 @@ function generatequestions() {
     },
     //Question5
     {
-      Quiz5: "Which one of the following is an ternary operator:",
+      Quiz: "Which one of the following is an ternary operator:",
       options: {
         A: "?",
         B: ":",
@@ -63,7 +60,7 @@ function generatequestions() {
     },
     //Question6
     {
-      Quiz6: "Which type of Javascript language is?_______",
+      Quiz: "Which type of Javascript language is?_______",
       options: {
         A: "High-level",
         B: "Assembly-language",
@@ -74,7 +71,7 @@ function generatequestions() {
     },
     //Questions7
     {
-      Quiz7:
+      Quiz:
         "What symbols go around the properties for each Javascript function",
       options: {
         A: "<>",
@@ -86,7 +83,7 @@ function generatequestions() {
     },
     //Questions 8
     {
-      Quiz8: "The (function) and (var) are known as: (1 mrk)",
+      Quiz: "The (function) and (var) are known as: (1 mrk)",
       options: {
         A: "Data Types",
         B: "Keywords",
@@ -97,7 +94,7 @@ function generatequestions() {
     },
     //Question9
     {
-      Quiz9:
+      Quiz:
         "Which of the following variables takes precedence over the other if the names are the same?",
       options: {
         A: "Global variable",
@@ -108,7 +105,7 @@ function generatequestions() {
     },
     //Question10
     {
-      Quiz10:
+      Quiz:
         "Which one of the following is the correct way for calling the JavaScript code?",
       options: {
         A: "Function/method",
@@ -119,30 +116,46 @@ function generatequestions() {
       correctoption: "A",
     },
   ];
-  //declaration of variable to store HTML results
-  var Results = [];
-  var answers;
+  //DECLARATION OF THE MAIN VARIABLES
+  const questionscontainer = document.getElementById("questions");
+  const outputcontainer = document.getElementById("output");
+  const submissioncontainer = document.getElementById("submission");
+  function displayquestions() {
+    //declaration of variable to store HTML results
+    var Results = [];
+    exam.forEach((currentQuestion, questionNumber) => {
+          var answers;
+    for (let i = 0; i < questions.length; i++) {
+      const answers = questions[i];
+    
+      for (letter in questions[i].answers) {
+        answers.push(
+          '<label>'+ '<input type="radio" name="questions" ' + i + ' "value" ' + letter + '">' + letter + ':' + questions[i].answers[letter] + questions[i].answers[letter] + '</label>'
+        );
+      }
+      //addition of the question and the answers to the exam output
 
-  for (var i = 0; i < questions.length; i++) {
-    answers = [];
-    for (letter in quetions[i].answers) {
-      answers.push(
-        "<label>" +
-          '<input type="radio" name= "question ' +
-          i +
-          '"value"' +
-          letter +
-          '">' +
-          letter +
-          ":" +
-          questions[i].answers[letter] +
-          "</label>"
+      Results.push(
+        '<div class="question">' + questions[i].Quiz + '</div>' + '<div class="answers">' + answers.join('') + '</div>'
       );
     }
-    
-    //push the questions and the answers to the Results variable
-    Results.push(
-      '<div'
-    )
+      //combine the results list to one 
+      questionscontainer.innerHTML = Results.join('');
+      
+    }
   }
+
+      //push the questions and the answers to the Results variable
+      Results.push(
+        '<div class="question">' +
+          questions[i].question +
+          "</div>" +
+          '<div class="answers">' +
+          answers.join("") +
+          "</div"
+      );
+    }
+    questionscontainer.innerHTML = Results.join("");
+  }
+  displayquestions();
 }
