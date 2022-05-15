@@ -136,6 +136,23 @@ function myQuizes() {
   });
   quizContainer.innerHTML = output.join("");
 }
+function myResults() {
+  const answerContainers = quizContainer.querySelectorAll(".answers");
+  let numCorrect = 0;
+  allQuestions.forEach((currentQuestion, questionNumber) => {
+    const answerContainer = answerContainers[questionNumber];
+    const selector = `input[name=question${questionNumber}]:checked`;
+    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+    if (userAnswer === currentQuestion.correctAns) {
+      numCorrect++;
+      answerContainers[questionNumber].getElementsByClassName.colo =
+        "lgihtgreen";
+    } else {
+      answerContainers[questionNumber].style.color = "red";
+    }
+  });
+  resultsContainer.innerHTML = `${numCorrect} out of ${allQuestions.length}`;
+}
 /*function generatequestions() {
   var exam = [
     //Question 1
