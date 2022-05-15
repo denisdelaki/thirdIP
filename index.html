@@ -5,11 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QUIZBOARD</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <p class="testimer">Time:<span id="timer"> 20</span></p>
   </head>
   <body>
+    <header id="header">
+      <h1>QuizBoard</h1>
+      <img src="./assets/logomoringa.png" height="200px" />
+      <h1>Moringa school</h1>
+      <h3>
+        Read the question carefully and recheck your answers before you summit
+        the answers
+      </h3>
+      <h4>Kindly fill out your name and registration number below:</h4>
+      <div id="details">
+        <b>FULL NAME: </b> <input type="text" placeholder="FULL NAME" />
+        <b> REGISTRATION NO: </b>
+        <input type="text" placeholder="Registration number" /> <br />
+        <br />
+      </div>
+    </header>
     <div id="test"></div>
     <button id="submit">submit</button>
-    <div id="results"></div>
+    <div id="results">
+      <p>Congratulations for completing the exams: Yout score is:</p>
+    </div>
     <script src="./assets/script.js"></script>
   </body>
 </html>

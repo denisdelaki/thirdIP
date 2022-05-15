@@ -1,8 +1,13 @@
 /* specify the backgrouond color for the quizBoard*/
 body {
   background-color: silver;
+  padding: 10px 10px 10px 10px;
 }
 /*define the styling properties of the header elements*/
 #header > h1 {
   color: blueviolet;
+}
+#header > h3,
+h4 {
+  color: red;
 }
